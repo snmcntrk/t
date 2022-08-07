@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <input type="button" id="btn4" value="Q">
+
+  <h1>Register</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.css">
+
+<!-- Latest compiled JavaScript -->
+
+        
+          <p id="p_id"></p>
+
+      
+        <button type="save" id ="save"value="For Loop"class="btn btn-primary">For Loop</button>
+
+
+
+    <script>
+        $(document).ready(
+        function () {
+            $("#save").click(function () {
+
+              var name = $("#name").val();
+              var email = $("#email").val();
+              var age = $("#age").val();
+              var bio = $("#bio").val();
+              var hobby = $("#hobby").val();
+              var gender = $("#gender").val();
+
+
+                $.ajax({
+                    method : "POST",  // Get or Post
+                    crossDomain : true, // sending request to other domains should be allowed
+                    url : "http://localhost:10000/mars-user/add",
+                    dataType: "json",
+                    async:false,
+
+                    headers:{
+                       
+                    },data:{// data should be ordered same order as schema 
+                      email:email, 
+                      name:name,
+                      age:age,
+                      bio:bio,
+                      hobby:hobby,
+                      gender:gender
+                    },
+
+                    success: function (data) {
+                    console.log(data);
+                    console.log(data.data.name);
+
+                    for (let index = 0; index < 10; index++) {
+                      //document.getElementById("p_id").innerHTML="sinem";
+
+                      //....Bad approach
+                      document.write(
+                        "Sinem"
+                      );
+                      //....Good approach
+                    $("p_id").append("Sinemdata");
+                    }
+                    
+                      //var text= "Successful todo entry.";
+                      //document.getElementById("p_id").innerHTML=text;
+                 
+      
+                    },
+                    error:function () {
+                        console.log("something went wrong");
+                    }
+                })
+//hw data post
+
+//<p>hi</p>
+//reusable CompositionEvent inject the data in that post and use it several Times
+//append function need to be called according to number object
+//dom append for loop 10 times p 
+
+
+//data:{}
+
+
+
+            });
+        });
+
+
+    </script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
+
